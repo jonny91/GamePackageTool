@@ -41,7 +41,6 @@ def calc_md5(context):
 
 
 if __name__ == '__main__':
-    floderOrFileName = os.path.abspath(os.path.join(os.path.curdir, "test.awd"))
     floderOrFileName = r"/Users/Jonny/Downloads/assets"
     print("开始解析 " + floderOrFileName)
     traverse_calc(floderOrFileName)
