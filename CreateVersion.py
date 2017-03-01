@@ -48,14 +48,12 @@ def __createVersionFile__():
         versionStr = zlib.compress(versionStr)
         f.write(versionStr)
 
-def run():
+def run(floderOrFileName):
     __readMD5File__()
     __readVersionFile__()
-    __checkMD5__()
-    __createVersionFile__()
 
-if __name__ == '__main__':
-    floderOrFileName = r"E:\adventure\assets"
-    print("开始解析 " + floderOrFileName)
     CreateMD5.traverse_calc(floderOrFileName)
     CreateMD5.record_md5()
+
+    __checkMD5__()
+    __createVersionFile__()
