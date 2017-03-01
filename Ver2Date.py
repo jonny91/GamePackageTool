@@ -4,15 +4,15 @@
 import os
 import hashlib
 import json
+import struct
 
 md5Dic = {}
 FILE_COUNT = 0
 
 
 def record_md5():
-    with open("output.txt", "w+") as f:
+    with open("md5.txt", "w+") as f:
         json.dump(md5Dic, f)
-        print(md5Dic)
 
 
 def traverse_calc(fName):
@@ -41,7 +41,7 @@ def calc_md5(context):
 
 
 if __name__ == '__main__':
-    floderOrFileName = r"/Users/Jonny/Downloads/assets"
+    floderOrFileName = r"E:\adventure\assets"
     print("开始解析 " + floderOrFileName)
     traverse_calc(floderOrFileName)
     record_md5()
