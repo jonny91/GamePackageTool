@@ -34,8 +34,9 @@ def calc(fName):
     FILE_COUNT += 1
     eachF = open(fName, "rb")
     md5 = calc_md5(eachF.read())
-    md5Dic[fName] = md5
-    print(fName + " : " + md5)
+    nameSplit = fName.split("assets")
+    md5Dic["\\assets" + nameSplit[len(nameSplit)-1]] = md5
+    print("\\assets" + nameSplit[len(nameSplit)-1] + " : " + md5)
 
 
 def calc_md5(context):
@@ -49,11 +50,3 @@ def run(path):
     traverse_calc(path)
     record_md5()
     print("解析完成 文件个数:" + str(path))
-
-
-if __name__ == '__main__':
-    floderOrFileName = r"E:\adventure\assets"
-    print("开始解析 " + floderOrFileName)
-    traverse_calc(floderOrFileName)
-    record_md5()
-    print("解析完成 文件个数:" + str(FILE_COUNT))
